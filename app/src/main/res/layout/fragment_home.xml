@@ -13,10 +13,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="15">
+
+            <com.daimajia.slider.library.SliderLayout
+                android:id="@+id/mDemoSlider"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                />
             <android.support.v4.view.ViewPager
                     android:id="@+id/imagePage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
+
             </android.support.v4.view.ViewPager>
             <android.support.design.widget.TabLayout
                     android:id="@+id/tabDots"

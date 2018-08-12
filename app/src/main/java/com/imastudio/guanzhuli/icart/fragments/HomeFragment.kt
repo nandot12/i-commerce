@@ -9,7 +9,6 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -20,6 +19,17 @@ import java.util.Timer
 import java.util.TimerTask
 
 import com.google.android.gms.internal.zzir.runOnUiThread
+import com.imastudio.guanzhuli.icart.fragments.produk.HomeNewArrivalFragment
+import com.imastudio.guanzhuli.icart.fragments.produk.HomeTopSellerFragment
+import kotlinx.android.synthetic.main.fragment_home.*
+import com.daimajia.slider.library.Animations.DescriptionAnimation
+import com.daimajia.slider.library.SliderLayout
+import com.daimajia.slider.library.SliderTypes.BaseSliderView
+import com.daimajia.slider.library.SliderTypes.TextSliderView
+
+
+
+
 
 /**
  * Created by Guanzhu Li on 12/31/2016.
@@ -34,6 +44,50 @@ class HomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         activity!!.title = "iCart"
+    }
+
+    //todo 64 kalau seandai menggunakan android extension shrus menggunakan onViewgroup
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        //todo 65 create new function
+        slide()
+
+
+    }
+
+    private fun slide() {
+
+        //todo 66 pastekan web site image slider
+        val url_maps = HashMap<String, String>()
+        url_maps["Hannibal"] = "http://static2.hypable.com/wp-content/uploads/2013/12/hannibal-season-2-release-date.jpg"
+        url_maps["Big Bang Theory"] = "http://tvfiles.alphacoders.com/100/hdclearart-10.png"
+        url_maps["House of Cards"] = "http://cdn3.nflximg.net/images/3093/2043093.jpg"
+        url_maps["Game of Thrones"] = "http://images.boomsbeat.com/data/images/full/19640/game-of-thrones-season-4-jpg.jpg"
+        //add your extra information
+
+        for (name in url_maps.keys) {
+            val textSliderView = TextSliderView(activity)
+            // initialize a SliderLayout
+            textSliderView
+                    .description(name)
+                    .image(url_maps.get(name))
+                    .setScaleType(BaseSliderView.ScaleType.Fit)
+
+
+            //add your extra information
+            textSliderView.bundle(Bundle())
+            textSliderView.bundle
+                    .putString("extra", name)
+
+            mDemoSlider.addSlider(textSliderView)
+        }
+        mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Accordion)
+        mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom)
+        mDemoSlider.setCustomAnimation(DescriptionAnimation())
+        mDemoSlider.setDuration(4000)
+        mDemoSlider.startAutoCycle()
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

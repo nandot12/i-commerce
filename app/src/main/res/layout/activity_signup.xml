@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:background="#FAFAFA"
         android:backgroundTint="#FAFAFA"
-        tools:context="com.imastudio.guanzhuli.icart.SignUpActivity">
+        tools:context="com.imastudio.guanzhuli.icart.signUp.SignUpActivity">
     <!--make it a round view-->
 
     <EditText
@@ -42,6 +42,13 @@
             android:inputType="textPassword"
             android:hint="Retype Password"
             android:id="@+id/sign_up_password2"/>
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="alamat"
+            android:id="@+id/sign_up_alamat"/>
     <Button
             android:text="Sign up"
             android:id="@+id/button_sign_up"
