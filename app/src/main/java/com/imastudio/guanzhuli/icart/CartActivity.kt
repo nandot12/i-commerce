@@ -11,7 +11,7 @@ class CartActivity : AppCompatActivity() {
         setContentView(R.layout.activity_cart)
 
 
-
+//mantapdjiwa nih
 
 
     }
